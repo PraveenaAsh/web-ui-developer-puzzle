@@ -51,7 +51,34 @@ describe('Books Reducer', () => {
 
       expect(result.ids).toEqual(['A', 'B', 'C']);
     });
+  
+  it('markBookAsFinished should mark book as finished in state', () => {
+    const finishedDate = new Date().toISOString();
+    const item = createReadingListItem('B');
+    const action = ReadingListActions.markBookAsFinished({
+      bookId: item.bookId,
+      finishedDate
+    });
+
+    const result: State = reducer(state, action);
+
+    expect(result.entities[item.bookId].finishedDate).toEqual(finishedDate);
+    expect(result.entities[item.bookId].finished).toBe(true);
   });
+
+  it('markBookAsFinishedFailed should undo book marked as finished in state', () => {
+    const item = createReadingListItem('B');
+    const action = ReadingListActions.markBookAsFinishedFailed({
+      bookId: item.bookId
+    });
+
+    const result: State = reducer(state, action);
+
+    expect(result.entities[item.bookId].finishedDate).toEqual('');
+    expect(result.entities[item.bookId].finished).toBe(false);
+  });
+
+});
 
   describe('unknown action', () => {
     it('should return the previous state', () => {
@@ -62,4 +89,5 @@ describe('Books Reducer', () => {
       expect(result).toEqual(initialState);
     });
   });
+  
 });
