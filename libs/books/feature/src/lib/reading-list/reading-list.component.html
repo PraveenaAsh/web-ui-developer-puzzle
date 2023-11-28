@@ -21,7 +21,7 @@
         mat-icon-button
         (click)="markAsFinished(book)"
         [attr.aria-label]="'Mark ' + book.title + ' as finished'"
-        [matTooltip]="'Mark ' + book.title + ' as finished'" 
+
       >
         <mat-icon
           class="mark-finish-circle"
@@ -37,7 +37,7 @@
         [attr.aria-label]="'Remove ' + book.title + ' from reading list'"
         (click)="removeFromReadingList(book)"
         data-testing="book-remove-button"
-        
+
       >
         <mat-icon>remove_circle</mat-icon>
       </button>
