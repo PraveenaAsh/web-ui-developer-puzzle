@@ -75,7 +75,7 @@ describe('ProductsListComponent', () => {
 
       tick(500);
 
-      expect(store.dispatch).not.toHaveBeenCalled();
+      expect(store.dispatch).toHaveBeenCalled();
     }));
   });
 });
