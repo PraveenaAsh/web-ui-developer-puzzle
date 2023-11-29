@@ -39,9 +39,8 @@ export class BookSearchComponent implements OnInit, OnDestroy {
       .get('term')
       .valueChanges.pipe(
         debounceTime(500),
-        distinctUntilChanged(),
-        takeUntil(this.unsubscribeSubject$)
-      ).subscribe(() => this.searchBooks());
+        distinctUntilChanged()
+       ).subscribe(() => this.searchBooks());
   }
 
   @HostListener('window:beforeunload')
@@ -60,7 +59,6 @@ export class BookSearchComponent implements OnInit, OnDestroy {
 
   searchExample(): void {
     this.searchForm.controls.term.setValue('javascript');
-    this.searchBooks();
   }
 
   searchBooks(): void {
