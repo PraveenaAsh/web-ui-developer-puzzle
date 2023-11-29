@@ -23,7 +23,7 @@
     1. Buttons do not have an accessible name - FIXED
     2. Background and foreground colors do not have a sufficient contrast ratio - FIXED
 - Manually checked:
-    1. images don't have `alt` text - FIXED
+    1. Image tag was missing `alt` attribute in book-search and reading-list html files. It provides description of an image if it's an interactive element else we can provide `alt=""` for decorative image - FIXED
     2. Screen-reader reads the `search icon` on page as _"button"_. Added `aria-label` to make this more meaningful. - FIXED
     3. Elements not redirecting should not be wrapped in `<a>` tag. - FIXED by replacing with `<button>`
     4. The book content in search result tile is not readable. Focus directly moves to "Want to Read" button after search icon. Enabled to enhance the keyboard navigation to read book details. FIXED

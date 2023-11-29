@@ -19,7 +19,7 @@
 
 <ng-container *ngIf="searchTerm; else empty">
   <section class="book-grid">
-    <div class="book" data-testing="book-item" *ngFor="let book of books$ | async" tabindex="0">
+    <div class="book" data-testing="book-item" *ngFor="let book of books$ | async">
       <div class="book--title">
         {{ book.title }}
       </div>
