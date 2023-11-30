@@ -32,7 +32,7 @@ export const removeFromReadingList = createAction(
 );
 
 export const removeFromReadingListFailed = createAction(
-'[Reading List API] remove from readingList failed',
+  '[Reading List API] remove from readingList failed',
   props<{ item: ReadingListItem }>()
 );
 
