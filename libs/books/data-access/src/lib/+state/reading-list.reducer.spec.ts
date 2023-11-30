@@ -52,7 +52,7 @@ describe('Books Reducer', () => {
       expect(result.ids).toEqual(['A', 'B', 'C']);
     });
   
-  it('markBookAsFinished should mark book as finished in state', () => {
+  it('markBookAsFinished should set finished and finishedDate in state', () => {
     const finishedDate = new Date().toISOString();
     const item = createReadingListItem('B');
     const action = ReadingListActions.markBookAsFinished({
@@ -66,7 +66,7 @@ describe('Books Reducer', () => {
     expect(result.entities[item.bookId].finished).toBe(true);
   });
 
-  it('markBookAsFinishedFailed should undo book marked as finished in state', () => {
+  it('markBookAsFinishedFailed should set finished as false and finishedDate as empty in state', () => {
     const item = createReadingListItem('B');
     const action = ReadingListActions.markBookAsFinishedFailed({
       bookId: item.bookId

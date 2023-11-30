@@ -10,7 +10,7 @@ import * as ReadingListActions from './reading-list.actions';
 import { ReadingListItem } from '@tmo/shared/models';
 
 
-describe('ToReadEffects', () => {
+describe('ReadingListEffect', () => {
   let actions: ReplaySubject<any>;
   let effects: ReadingListEffects;
   let httpMock: HttpTestingController;
@@ -54,7 +54,7 @@ describe('ToReadEffects', () => {
       finishedDate = new Date().toISOString();
     });
 
-    it('should add a book to the reading list successfully', (done) => {
+    it('should mark a book as finished successfully', (done) => {
       actions.next(ReadingListActions.markBookAsFinished({ bookId: item.bookId, finishedDate }));
 
       effects.markBookAsFinished$.subscribe((action) => {
@@ -69,7 +69,7 @@ describe('ToReadEffects', () => {
         .flush([item]);
     });
 
-    it('should undo the added book when API returns error', (done) => {
+    it('should mark a book as failed', (done) => {
       actions.next(ReadingListActions.markBookAsFinished({ bookId: item.bookId, finishedDate }));
 
       effects.markBookAsFinished$.subscribe((action) => {
