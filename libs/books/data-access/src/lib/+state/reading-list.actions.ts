@@ -4,21 +4,21 @@ import { Book, ReadingListItem } from '@tmo/shared/models';
 export const init = createAction('[Reading List] Initialize');
 
 export const loadReadingListSucceeded = createAction(
-  '[Reading List API] Load list success',
+  '[Reading List API] load reading list succeeded',
   props<{ list: ReadingListItem[] }>()
 );
 export const loadReadingListFailed = createAction(
-  '[Reading List API] Load list error',
+  '[Reading List API] load reading list failed',
   props<{ error: string }>()
 );
 
 export const addToReadingList = createAction(
-  '[Books Search Results] Add to list',
+  '[Books Search Results] add to readingList',
   props<{ book: Book }>()
 );
 
 export const addToReadingListFailed = createAction(
-  '[Reading List API] Failed add to list',
+  '[Reading List API] add to readingList failed',
   props<{ book: Book }>()
 );
 
@@ -27,15 +27,15 @@ export const addToReadingListSucceeded = createAction(
 );
 
 export const removeFromReadingList = createAction(
-  '[Books Search Results] Remove from list',
+  '[Books Search Results] add to readingList succeeded',
   props<{ item: ReadingListItem }>()
 );
 
 export const removeFromReadingListFailed = createAction(
-  '[Reading List API] Failed remove from list',
+'[Reading List API] remove from readingList failed',
   props<{ item: ReadingListItem }>()
 );
 
 export const removeFromReadingListSucceeded = createAction(
-  '[Reading List API] Confirmed remove from list'
+  '[Reading List API] remove from readingList succeeded'
 );
